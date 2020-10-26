@@ -48,6 +48,19 @@ for (var i = 0; i < wrapper.length; i++) {
     console.log("client", wrapper[0].clientHeight);
  }
 
+
+ // TRANSPARENCY
+// IP LOCATION
+fetch('https://ipapi.co/json/')
+.then(function(response) {
+  response.json().then(jsonData => {
+    console.log(jsonData);
+  });
+})
+.catch(function(error) {
+  console.log(error)
+});
+
  document.getElementById("demo").innerHTML =
  "Screen width: " + screen.width
  + ", Screen Height: " + screen.height
@@ -56,25 +69,5 @@ for (var i = 0; i < wrapper.length; i++) {
  + ", User Agent:" + navigator.userAgent
  + ", Platform: " + navigator.platform
  + ", Language: " + navigator.platform
- + ", Are you online?" + navigator.onLine;
-
-
- if ("geolocation" in navigator) {
-    // se o geolocation pode executar neste browser
-    navigator.geolocation.getCurrentPosition(
-     function success(position) {
-       // for when getting location is a success
-       console.log('latitude', position.coords.latitude, 
-                   'longitude', position.coords.longitude);
-     },
-    function error(error_message) {
-      // for when getting location results in an error
-      console.error('An error has occured while retrieving location', error_message)
-    }  
-    ) }
-  else {
-    // geolocation is not supported
-    // get your location some other way
-    console.log('geolocation is not enabled on this browser')
-  }
-  
+ + ", Are you online?" + navigator.onLine
+ + ", Everything: " + jsonData;
