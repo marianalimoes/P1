@@ -1,4 +1,4 @@
-// para subir e descer
+var d = document;
 
 //botão e div que sobe e desce (slider)
 var toggle = document.getElementById('toggle');
@@ -56,22 +56,40 @@ de segurança https */
 
 // recorrer a este website para aceder ao IP do user
 fetch('https://ipapi.co/json/')
-.then(function(response) {
-  response.json()
-  .then(jsonData => {
-      // log do objeto jsonData
-      // com info sobre o utilizador
-      console.log(jsonData);
-      
-      // escrever na div
-      // tornar string o objeto jsonData
-      document.getElementById("demo").innerHTML = JSON.stringify(jsonData);
+    .then(function(response) {
+        response.json().then(jsonData => {
+            console.log(jsonData.city);
+            
+            d.getElementById("online").innerText = "Are you online?" + navigator.onLine;
+
+            d.getElementById("cont").innerText = "Continent: " + jsonData.continent_code;
+            d.getElementById("countryCode").innerText = "Country Code: " + jsonData.country_code;
+            d.getElementById("country").innerText = "Country: " + jsonData.country;
+            d.getElementById("region").innerText = "Region: " + jsonData.region;
+            d.getElementById("city").innerText = "City: " + jsonData.city;
+            d.getElementById("postal").innerText = "Postal-Code: " + jsonData.postal;
+            d.getElementById("latlong").innerText = "Coordinates: " + jsonData.latlong;
+            d.getElementById("timezone").innerText = "Timezone: " + jsonData.timezone;
+            d.getElementById("utc").innerText = "UTC: " + jsonData.utc_offset;
+            d.getElementById("calling").innerText = "Dial Code: " + jsonData.country_calling_code;
+            d.getElementById("currency").innerText = "Currency Code: " + jsonData.currency;
+            d.getElementById("currencyName").innerText = "Currency: " + jsonData.currency_name;
+            d.getElementById("lang").innerText = "Languages: " + jsonData.languages;
+            d.getElementById("org").innerText = "Organization: " + jsonData.org;
+            d.getElementById("ip").innerText = "Your IP Address: " + jsonData.ip;
+            
+            d.getElementById("appVersion").innerText = "App Version: " + navigator.appVersion;
+            d.getElementById("userAgent").innerText = "User Agent: " + navigator.userAgent;
+            d.getElementById("screenW").innerText = "Screen Width: " + screen.width;
+            d.getElementById("screenH").innerText = "Screen Height: " + screen.height;
+            d.getElementById("screenH").innerText = "Screen Height: " + screen.height;
+            d.getElementById("platform").innerText = "Platform: " + navigator.platform;
+            
+        });
     })
-})
-// no caso de erro, comunicar
-.catch(function(error) {
-  console.log(error)
-});
+    .catch(function(error) {
+        console.log(error)
+    });
 
 
  document.getElementById("demo").innerHTML =
