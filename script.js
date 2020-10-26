@@ -56,9 +56,11 @@ for (var i = 0; i < wrapper.length; i++) {
  + ", User Agent:" + navigator.userAgent
  + ", Platform: " + navigator.platform
  + ", Language: " + navigator.platform
- + ", Are you online?" + navigator.onLine; // returns true
- //+ ", Latitude: " + position.coords.latitude
- //+ ", Longitude: " + osition.coords.longitude;
+ + ", Are you online?" + navigator.onLine;
+
+ $.get("https://api.ipdata.co?api-key=test", function(response) {
+    console.log(response.country_name);
+}, "jsonp");
 
 
  /*
@@ -75,6 +77,8 @@ for (var i = 0; i < wrapper.length; i++) {
 });
 */
 
+
+/*
 function ipLookUp () {
   $.ajax('http://ip-api.com/json')
   .then(
@@ -144,7 +148,7 @@ function ipLookUp () {
     console.log('geolocation is not enabled on this browser')
     ipLookUp()
   }
-  
+  */
 
  // location
  /*
