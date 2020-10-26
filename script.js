@@ -51,15 +51,28 @@ for (var i = 0; i < wrapper.length; i++) {
 
  // TRANSPARENCY
 // IP LOCATION
+/* apenas funciona dentro do protocolo
+de segurança https */
+
+// recorrer a este website para aceder ao IP do user
 fetch('https://ipapi.co/json/')
 .then(function(response) {
-  response.json().then(jsonData => {
-    console.log(jsonData);
-  });
+  response.json()
+  .then(jsonData => {
+      // log do objeto jsonData
+      // com info sobre o utilizador
+      console.log(jsonData);
+      
+      // escrever na div
+      // tornar string o objeto jsonData
+      document.getElementById("demo").innerHTML = JSON.stringify(ip);
+    })
 })
+// no caso de erro, comunicar
 .catch(function(error) {
   console.log(error)
 });
+
 
  document.getElementById("demo").innerHTML =
  "Screen width: " + screen.width
