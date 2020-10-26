@@ -11,8 +11,8 @@
 <body>
 
 <div id="container" >
-   <button id="toggle"></button>
-    <div id="privacy-container" class="slider opened">
+   <button id="toggle" onclick="playAudio('unlock.mp3')"></button>
+    <div id="privacy-container" class="slider closed">
 
         <div class="title-wrapper">
             <h1 id="privacy">PRIVACY</h1>
@@ -25,6 +25,7 @@
     <div id="trans-container">
         <div id="demo">
             <p id="online"></p>
+            <p id="ip"></p>
             <p id="cont"></p>
             <p id="countryCode"></p>
             <p id="country"></p>
@@ -39,12 +40,12 @@
             <p id="currencyName"></p>
             <p id="lang"></p>
             <p id="org"></p>
-            <p id="ip"></p>
 
             <p id="appVersion"></p>
             <p id="userAgent"></p>
             <p id="screenW"></p>
             <p id="screenH"></p>
+            <p id="platform"></p>
             
         </div>
         <div class="title-wrapper">

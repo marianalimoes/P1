@@ -47,7 +47,7 @@ button,
 }
 
 /*slider*/
-.slider .opened {
+.slider .closed {
   /* visível */
 
   /* opções para vários browsers */
@@ -58,7 +58,7 @@ button,
 }
 
 /*off-screen*/
-.slider.closed {
+.slider.opened {
   /* offscreen */
   overflow: hidden;
 

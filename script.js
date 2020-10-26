@@ -10,19 +10,24 @@ toggle.addEventListener('click', toggleSlider);
 // (e vice-versa)
 // no CSS altera-se a localização (-100%)
 function toggleSlider(){
-    if (slider.classList.contains('opened')) {
-        slider.classList.remove('opened');
-        slider.classList.add('closed');
-    } else {
+    if (slider.classList.contains('closed')) {
         slider.classList.remove('closed');
         slider.classList.add('opened');
+    } else {
+        slider.classList.remove('opened');
+        slider.classList.add('closed');
     }
+}
+
+// unlock audio quando se clica no toggle
+function playAudio(url) {
+    new Audio(url).play();
 }
 
 
 /*obter altura dos .title-wrappers
 para centrar os h1 em altura*/
-const vh = window.innerHeight;
+const vh = screenHeight;
 var wrapper = document.getElementsByClassName('title-wrapper');
 
 // calc é 100% da altura do viewport,
@@ -60,11 +65,11 @@ fetch('https://ipapi.co/json/')
         response.json().then(jsonData => {
             console.log(jsonData.city);
             
-            d.getElementById("online").innerText = "Are you online?" + navigator.onLine;
+            d.getElementById("online").innerText = "Are you online? " + navigator.onLine;
 
             d.getElementById("cont").innerText = "Continent: " + jsonData.continent_code;
             d.getElementById("countryCode").innerText = "Country Code: " + jsonData.country_code;
-            d.getElementById("country").innerText = "Country: " + jsonData.country;
+            d.getElementById("country").innerText = "Country: " + jsonData.country_name;
             d.getElementById("region").innerText = "Region: " + jsonData.region;
             d.getElementById("city").innerText = "City: " + jsonData.city;
             d.getElementById("postal").innerText = "Postal-Code: " + jsonData.postal;
