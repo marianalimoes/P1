@@ -65,7 +65,7 @@ fetch('https://ipapi.co/json/')
       
       // escrever na div
       // tornar string o objeto jsonData
-      document.getElementById("demo").innerHTML = JSON.stringify(ip);
+      document.getElementById("demo").innerHTML = JSON.stringify(jsonData);
     })
 })
 // no caso de erro, comunicar
