@@ -59,21 +59,6 @@ for (var i = 0; i < wrapper.length; i++) {
  + ", Are you online?" + navigator.onLine;
 
 
- InetAddress IP = InetAddress.getLocalHost("localhost");
- 
- fetch('https://ipapi.co/'+IP+'/json/')
-.then(function(response) {
-  response.json().then(jsonData => {
-    console.log(jsonData);
-  });
-})
-.catch(function(error) {
-  console.log(error)
-});
-
-
-
-/*
 function ipLookUp () {
   $.ajax('http://ip-api.com/json')
   .then(
@@ -143,7 +128,6 @@ function ipLookUp () {
     console.log('geolocation is not enabled on this browser')
     ipLookUp()
   }
-  */
 
  // location
  /*
