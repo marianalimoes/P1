@@ -58,12 +58,7 @@ for (var i = 0; i < wrapper.length; i++) {
  + ", Language: " + navigator.platform
  + ", Are you online?" + navigator.onLine;
 
- $.get("https://api.ipdata.co?api-key=test", function(response) {
-    console.log(response.country_name);
-}, "jsonp");
 
-
- /*
  InetAddress IP = InetAddress.getLocalHost("localhost");
  
  fetch('https://ipapi.co/'+IP+'/json/')
@@ -75,7 +70,7 @@ for (var i = 0; i < wrapper.length; i++) {
 .catch(function(error) {
   console.log(error)
 });
-*/
+
 
 
 /*
