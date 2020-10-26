@@ -1,0 +1,160 @@
+/*initialize variables*/
+:root {
+  --wd: 600%;
+  --wt: 900;
+}
+
+@font-face {
+  font-family: "roboto-flex";
+  src: url("../fonts/RobotoFlex.ttf");
+  font-style: normal;
+  font-weight: 100 900;
+  font-stretch: 20% 600%;
+
+  /*not required, but to display font as fast as possible*/
+  /*font-display: swap;*/
+}
+
+/*ELEMENTOS E ANIMAÇÕES*/
+hmtl,
+body {
+  background-color: #e5eff9;
+
+  color: #93adf0;
+  font-family: "roboto-flex", Arial, Helvetica, sans-serif;
+}
+
+/*main container*/
+#container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  /* Subtract the 10px top/bottom margins */
+  /*height: calc(100vh - 20px);*/
+}
+
+button,
+#privacy-container,
+#trans-container {
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*slider*/
+.slider .opened {
+  /* visível */
+
+  /* opções para vários browsers */
+  -webkit-transform: translate(0, 0%);
+  -moz-transform: translate(0, 0%);
+  -ms-transform: translate(0, 0%);
+  transform: translate(0, 0%);
+}
+
+/*off-screen*/
+.slider.closed {
+  /* offscreen */
+  overflow: hidden;
+
+  /* opções para vários browsers */
+  -webkit-transform: translate(0, -100%);
+  -moz-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+  height: 0px;
+}
+
+/*para centrar títulos*/
+.title-wrapper {
+  position: relative;
+  margin: auto;
+  margin-top: 0;
+  height: auto;
+}
+
+/* 1 PRIVACY*/
+#privacy-container {
+  z-index: 10;
+
+  background-color: #222426;
+  box-sizing: border-box;
+  padding: 0px 10px 0px;
+
+  word-wrap: break-word;
+
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+footer,
+#freedom {
+  position: fixed;
+  left: 0;
+  bottom: 3vh;
+  width: 100%;
+
+  text-align: center;
+}
+
+/* 2 TRANSPARENCY*/
+#trans-container {
+  z-index: 0;
+
+  box-sizing: border-box;
+  padding: 0px 10px 0px;
+
+  word-wrap: break-word;
+
+  -webkit-transition: -webkit-transform 0.3s ease;
+  -moz-transition: -moz-transform 0.3s ease;
+  -ms-transition: -ms-transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+
+footer,
+#surv {
+  position: static;
+  padding-top: 0.3em;
+}
+
+/*colocar todos os elementos atrás da pág.PRIVACY*/
+#trans-container > * {
+  z-index: 0;
+}
+
+/*TIPOGRAFIA*/
+#privacy {
+  font-size: 65vw;
+  line-height: 0.85em;
+  text-align: center;
+
+  font-variation-settings: "wdth" var(--wd);
+  animation: esticar 1s;
+}
+
+#transparency {
+  font-size: 5vw;
+  line-height: 0.85em;
+  text-align: center;
+
+  font-variation-settings: "wdth" var(--wd);
+  animation: esticar 1s;
+}
+
+/*animar fonte variável*/
+@keyframes esticar {
+  from {
+    font-stretch: 20%;
+  }
+  to {
+    font-variation-settings: "wtdh" var(--wd);
+  }
+}
