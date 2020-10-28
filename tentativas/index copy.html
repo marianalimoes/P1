@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy vs. Transparency</title>
+
+     <link rel="stylesheet" type="text/css" href="css/reset-css.css">
+     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body>
+
+<div id="container" >
+    <!-- quando clico, tocar audio 'unlock' -->
+   <button id="toggle" onclick="playAudio('unlock.mp3')"></button>
+
+    <!-- container que vai "abrir" -->
+    <div id="privacy-container" class="slider closed">
+
+        <!-- para centrar o texto em altura -->
+        <div class="title-wrapper">
+            <h1 id="privacy">PRIVACY</h1>
+        </div>
+        <footer id="freedom"><p>is freedom.</p></footer>
+    </div>
+
+    <div id="trans-container">
+
+        <div class="title-wrapper">
+            <h1 id="transparency">TRANSPARENCY</h1>
+            <!-- colocar footer dentro do text-wrapper aqui, porque quero o "is surveillance perto de TRANSPARENCY" -->
+            <footer id="surv"><p>is surveillance.</p></footer>
+         </div>
+
+         <!-- dados do utilizador em background -->
+        <div id="background">
+        <div class="row">
+            <p class="line">
+            <span  id="online"></span>
+            <span id="ip"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="line">
+            <span id="cont"></span>
+            <span id="countryCode"></span>
+            <span id="country"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="line">
+            <span id="region"></span>
+            <span id="city"></span>
+            <span id="postal"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="line">
+            <span id="latlong"></span>
+            <span id="timezone"></span>
+            <span id="utc"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="line">
+            <span id="calling"></span>
+            <span id="currencyName"></span>
+            <span id="lang"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="line">
+            <span id="org"></span>
+            <span id="platform"></span>
+            </p>
+        </div>
+        <div class="row">
+            <p class="line" id="userAgent"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="appVersion"></p>
+        </div>
+        </div>
+        <div id="bg2"></div>
+
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
