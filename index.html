@@ -11,47 +11,82 @@
 <body>
 
 <div id="container" >
-   <button id="toggle" onclick="playAudio('unlock.mp3')"></button>
+    <!-- quando clico, tocar audio 'unlock' -->
+   <button id="toggle" onclick="playAudio('unlock.m4a')"></button>
+
+    <!-- container que vai "abrir" -->
     <div id="privacy-container" class="slider closed">
 
+        <!-- para centrar o texto em altura -->
         <div class="title-wrapper">
-            <h1 id="privacy">PRIVACY</h1>
-
+            <h1 id="privacy" class="light">PRIVACY</h1>
         </div>
-
         <footer id="freedom"><p>is freedom.</p></footer>
     </div>
 
     <div id="trans-container">
-        <div id="demo">
-            <p id="online"></p>
-            <p id="ip"></p>
-            <p id="cont"></p>
-            <p id="countryCode"></p>
-            <p id="country"></p>
-            <p id="region"></p>
-            <p id="city"></p>
-            <p id="postal"></p>
-            <p id="latlong"></p>
-            <p id="timezone"></p>
-            <p id="utc"></p>
-            <p id="calling"></p>
-            <p id="currency"></p>
-            <p id="currencyName"></p>
-            <p id="lang"></p>
-            <p id="org"></p>
 
-            <p id="appVersion"></p>
-            <p id="userAgent"></p>
-            <p id="screenW"></p>
-            <p id="screenH"></p>
-            <p id="platform"></p>
-            
-        </div>
         <div class="title-wrapper">
             <h1 id="transparency">TRANSPARENCY</h1>
+            <!-- colocar footer dentro do text-wrapper aqui, porque quero o "is surveillance perto de TRANSPARENCY" -->
+            <footer id="surv"><p>is surveillance.</p></footer>
+         </div>
+
+         <!-- dados do utilizador em background -->
+        <div id="background">
+        <div class="row">
+            <p class="line" id="online"></p>
         </div>
-        <footer id="surv"><p>is surveillance.</p></footer>
+        <div class="row">
+            <p class="line" id="ip"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="cont"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="country"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="region"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="city"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="postal"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="latlong"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="timezone"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="utc"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="calling"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="currencyName"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="lang"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="org"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="platform"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="userAgent"></p>
+        </div>
+        <div class="row">
+            <p class="line" id="appVersion"></p>
+        </div>
+    </div>
+
     </div>
 </div>
 

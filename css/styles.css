@@ -1,18 +1,88 @@
-/*initialize variables*/
-:root {
-  --wd: 600%;
-  --wt: 900;
-}
-
+/* inicializar font */
 @font-face {
   font-family: "roboto-flex";
-  src: url("../fonts/RobotoFlex.ttf");
-  font-style: normal;
-  font-weight: 100 900;
-  font-stretch: 20% 600%;
+  src: url("../fonts/RobotoFlex2.ttf") format("truetype");
+
+  /* intervalo das variações */
+  font-weight: 100 1000;
+  font-stretch: 26% 100%;
 
   /*not required, but to display font as fast as possible*/
-  /*font-display: swap;*/
+  font-display: swap;
+}
+
+/*TIPOGRAFIA*/
+/* aplicar font em todos os elementos */
+* {
+  font-family: "roboto-flex", Helvetica, Arial, sans-serif !important;
+}
+
+#privacy {
+  font-size: 50vw;
+  line-height: 0.8em;
+  text-align: center;
+  width: 100%;
+
+  /* transição de light para black */
+  transition: all 4s ease-out;
+}
+
+.light {
+  font-weight: 100;
+  font-stretch: 70%;
+}
+.black {
+  font-weight: 650;
+  font-stretch: 130%;
+}
+
+#transparency {
+  font-size: 7vw;
+  font-weight: 200;
+  line-height: 0.85em;
+  text-align: center;
+
+  text-shadow: 0px 0px 40px rgb(85, 85, 255);
+
+  animation: esticar 1s;
+}
+
+.line {
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0px 0px 30px white;
+
+  font-size: 2em;
+  font-weight: 150;
+}
+
+footer {
+  font-size: 1em;
+  font-weight: 150;
+}
+
+#surv {
+  text-shadow: 0px 0px 30px rgb(85, 85, 255);
+}
+
+/*animar fonte variável*/
+@keyframes esticar {
+  from {
+    font-stretch: 20%;
+  }
+  to {
+    font-stretch: 100%;
+  }
+}
+
+@keyframes pesar {
+  from {
+    font-size: 100;
+  }
+  to {
+    font-variation-settings: "wght" var(--wt);
+  }
 }
 
 /*ELEMENTOS E ANIMAÇÕES*/
@@ -20,37 +90,24 @@ hmtl,
 body {
   background-color: #e5eff9;
 
+  height: 100%;
+  width: 100%;
+
   color: #93adf0;
-  font-family: "roboto-flex", Arial, Helvetica, sans-serif;
 }
 
 /*main container*/
 #container {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
-
-  /* Subtract the 10px top/bottom margins */
-  /*height: calc(100vh - 20px);*/
-}
-
-button,
-#privacy-container,
-#trans-container {
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  position: absolute;
-  top: 0;
-  left: 0;
 }
 
 /*slider*/
 .slider .closed {
-  /* visível */
-
-  /* opções para vários browsers */
+  /* privacy visível */
+  /* não animar a altura */
   -webkit-transform: translate(0, 0%);
   -moz-transform: translate(0, 0%);
   -ms-transform: translate(0, 0%);
@@ -62,7 +119,7 @@ button,
   /* offscreen */
   overflow: hidden;
 
-  /* opções para vários browsers */
+  /* animar toda a altura do div para cima */
   -webkit-transform: translate(0, -100%);
   -moz-transform: translate(0, -100%);
   -ms-transform: translate(0, -100%);
@@ -70,28 +127,48 @@ button,
   height: 0px;
 }
 
-/*para centrar títulos*/
+/* parent - para centrar */
+button,
+#privacy-container,
+#trans-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+}
+
+/*child*/
 .title-wrapper {
   position: relative;
-  margin: auto;
-  margin-top: 0;
-  height: auto;
+  margin: 0 auto;
+
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  word-break: break-word;
 }
 
 /* 1 PRIVACY*/
 #privacy-container {
+  /* colocar à frente do transparency */
   z-index: 10;
 
   background-color: #222426;
+  color: black;
   box-sizing: border-box;
   padding: 0px 10px 0px;
 
-  word-wrap: break-word;
-
+  /* transição up e down */
   -webkit-transition: -webkit-transform 0.3s ease;
   -moz-transition: -moz-transform 0.3s ease;
   -ms-transition: -ms-transform 0.3s ease;
   transition: transform 0.3s ease;
+}
+
+#privacy {
+  padding-bottom: 20px;
 }
 
 footer,
@@ -111,12 +188,16 @@ footer,
   box-sizing: border-box;
   padding: 0px 10px 0px;
 
-  word-wrap: break-word;
-
+  /* transição up e down */
   -webkit-transition: -webkit-transform 0.3s ease;
   -moz-transition: -moz-transform 0.3s ease;
   -ms-transition: -ms-transform 0.3s ease;
   transition: transform 0.3s ease;
+}
+
+#trans-container .title-wrapper {
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 footer,
@@ -130,31 +211,68 @@ footer,
   z-index: 0;
 }
 
-/*TIPOGRAFIA*/
-#privacy {
-  font-size: 65vw;
-  line-height: 0.85em;
-  text-align: center;
+/* BACKGROUND */
+#background {
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
 
-  font-variation-settings: "wdth" var(--wd);
-  animation: esticar 1s;
+  /*  desfoque não funciona com strings? */
+  /* backdrop-filter: blur(200px); */
 }
 
-#transparency {
-  font-size: 5vw;
-  line-height: 0.85em;
-  text-align: center;
-
-  font-variation-settings: "wdth" var(--wd);
-  animation: esticar 1s;
+.row {
+  position: relative;
+  height: 2em;
+  padding-bottom: 0.2em;
 }
 
-/*animar fonte variável*/
-@keyframes esticar {
-  from {
-    font-stretch: 20%;
+.line {
+  /* para conseguir obter width do texto inteiro,
+  sem estar relativo à largura do wrapper */
+  position: absolute;
+}
+
+/* MEDIA QUERIES */
+/* desktop */
+@media only screen and (min-width: 992px) {
+  /*  TIPOGRAFIA */
+  #privacy {
+    font-size: 18em;
+    text-align: center;
   }
-  to {
-    font-variation-settings: "wtdh" var(--wd);
+
+  #transparency {
+    text-shadow: 0px 0px 8vw blue;
+  }
+
+  footer {
+    font-size: 1.5em;
+  }
+
+  #surv {
+    padding-top: 15px;
+    font-size: 1.5em;
+  }
+
+  #background {
+    font-size: 1.3em;
+  }
+
+  .light {
+    font-weight: 100;
+    font-stretch: 70%;
+  }
+  .black {
+    font-weight: 900;
+    font-stretch: 130%;
+    line-height: 0.7em;
+  }
+}
+
+/* only smartphone */
+@media only screen and (max-width: 415px) {
+  #privacy {
+    font-size: 65vw;
   }
 }
